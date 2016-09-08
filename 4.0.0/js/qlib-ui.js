@@ -4,7 +4,7 @@
         style.id = "Quasar-qlib-ui-styles";
         style.rel = "stylesheet";
         style.type = "text/css";
-        style.href = Quasar.depot.get("SITE_URL") + "/" + Quasar.depot.get("RESOURCE_URI") + "/css/qlib-ui.css";
+        style.href = Quasar.depot.get("RESOURCE_URI") + "/css/qlib-ui.css";
         document.head.appendChild(style);
     }
 }());
