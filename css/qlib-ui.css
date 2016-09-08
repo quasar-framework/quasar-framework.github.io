@@ -1,0 +1,82 @@
+/* AjaxifyForm */
+.Quasar-AF { position: relative; }
+.Quasar-AF > .loading-indicator { 
+    display:none; margin:0 !important; padding:0 !important;
+    position: absolute; top:0; left:0; bottom:0; right:0; z-index: 100;
+}
+.Quasar-AF > .loading-indicator:after {
+    position: absolute; top: 50%; left: 50%; margin-left: -50px; margin-top: -50px;
+    height: 100%; width: 100%;
+    max-height: 128px; max-width: 128px;
+    background: url(../images/loading.gif) no-repeat center center;
+    background-size: contain;
+    display: block; content: ".";
+}
+.Quasar-AF.loading { opacity: 0.7; }
+.Quasar-AF.loading > .loading-indicator { display: block; }
+.Quasar-AF .AFResponse:empty { display: none; }
+
+/*  Checkbox  */
+.quasar.fancycheckbox { position: relative; }
+.quasar.fancycheckbox input { position: absolute; top:0; left:0; opacity: 0; }
+.quasar.fancycheckbox .box { display: inline-block; padding: 5px; border: solid 1px black; vertical-align: middle; }
+.quasar.fancycheckbox:active .box { background-color: #f1f1f1; }
+.quasar.fancycheckbox.focused .box { box-shadow: 0 0 5px dodgerblue; }
+.quasar.fancycheckbox .tick { display: block; opacity: 0; }
+.quasar.fancycheckbox .tick.animated { animation-name: QFC-hide; animation-duration: 0.4s; }
+.quasar.fancycheckbox.checked .tick { opacity: 1; }
+.quasar.fancycheckbox.checked .tick.animated { animation-name: QFC-rotate; animation-duration: 0.4s; }
+.quasar.fancycheckbox .text { display: inline-block; vertical-align: middle; margin-left: 1%; }
+
+@keyframes QFC-rotate {
+    from { transform: rotate(180deg); }
+    to { transform: rotate(0deg); }
+}
+
+@keyframes QFC-hide {
+    from { transform: rotate(0deg); opacity: 1; }
+    to { transform: rotate(180deg); opacity: 0; }
+}
+
+/*  Dialog  */
+body { position:relative; }
+.Quasar-Dialog { display: none; position:fixed; top:0; bottom:0; left:0; right:0; height:auto; min-height:100%; background-color:rgba(0,0,0,0.6); z-index: 99999; overflow:auto; }
+.Quasar-Dialog.visible { display: block; }
+.Quasar-Dialog-holder { position:relative; background:white; text-align:center; width: 500px; min-width: 320px; max-width:80%; margin: 75px auto; }
+.Quasar-Dialog-body { padding: 30px 5%; background-color: #f1f1f1; overflow: hidden; }
+.Quasar-Dialog-close { z-index: 2; opacity: 0.4; position:absolute; right:0; top:0; cursor:pointer; padding: 5px; }
+.Quasar-Dialog-close:hover { opacity: 1; }
+.Quasar-Dialog-buttons:empty { display: none; }
+.Quasar-Dialog-buttons { padding: 5px 15px 5px 0; text-align: right; border-top: solid 1px lightgray; }
+.Quasar-Dialog-buttons > .qbutton{ padding:5px 15px; margin: 5px; border:solid lightgray 1px;;background:#f1f1f1; color:gray; cursor:pointer; display: inline-block; }
+.Quasar-Dialog-buttons > .qbutton:hover{ background:#f1f1f1;color:black;border-color: gray; }
+
+/*  datepicker  */
+.quasar.datepicker:not(.disabled) { cursor: pointer; }
+
+.datepickerDialog .Quasar-Dialog-body { padding: 0; }
+
+.datepickerFrame { position:relative; }
+.datepickerHolder { width:100%; padding: 0 10px 15px 10px; background:white; box-sizing: border-box; }
+.datepickerWindowTitle { padding: 15px 2%; width:96%; background:white; border-bottom: solid lightgray 1px; font-weight:bold; }
+
+.datepickerYear,
+.datepickerMonth { border: none; background: white; outline: none; }
+.datepickerDays { text-align: left; }
+
+.datepickerFrame button { border: none; background: none; }
+.datepickerDays > button { display:inline-block; width: 14.28%; text-align:center; padding:5px 0px; margin: 0; }
+.datepickerDaysOfWeek > div { display: inline-block; width: 14.28%; text-align: center; border-bottom: solid 1px lightgray; }
+
+.datepickerDays > button:hover { background: #C9E2FF; }
+.datepickerDays > button:active { background: dodgerblue; color:white; }
+
+.datepickerDays .selected { background: dodgerblue !important; color: white !important; }
+.datepickerDisabled { color:gray !important; background-color: #f1f1f1 !important; }
+.datepickerDisabled:hover { background: lightgray !important; }
+.datepickerDays .today { font-weight: bold; color: dodgerblue; }
+
+/* Toast */
+.quasar.toaster { position: fixed; bottom: 15px; left: 15px; right: 15px; }
+.quasar.toast { cursor: pointer; transition: opacity 2s ease-out; opacity: 1; }
+.quasar.toast.disappearing { opacity: 0; }

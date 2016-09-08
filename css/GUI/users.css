@@ -1,0 +1,40 @@
+.privileges { padding: 20px; }
+.privileges .main-feature { 
+    background-color: #f1f1f1;
+    border: solid 1px lightgray;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+}
+.privileges label:hover {
+    border-color: dodgerblue;
+}
+input[type=checkbox] { display: none; }
+input[type=checkbox] + .main-feature {
+
+} 
+input[type=checkbox]:checked + .main-feature {
+    background-color: dodgerblue;
+    color: white;
+}
+
+.sub-features { color: black; padding-left: 25px; display: none; }
+.sub-features > *:first-child { margin-top: 15px; }
+.sub-features > .sub-feature { color: #f1f1f1; cursor: pointer; }
+.sub-features > .sub-feature:hover { color: white; }
+
+input[type=checkbox]:checked + .main-feature > .sub-features {
+    display: block;
+}
+
+input[type=checkbox] + .sub-feature .fa-check {
+    display: none;
+}
+input[type=checkbox]:checked + .sub-feature .fa-check {
+    display: inline-block;
+}
+input[type=checkbox]:checked + .sub-feature .fa-times {
+    display: none;
+}

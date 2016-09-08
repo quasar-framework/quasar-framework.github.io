@@ -1,0 +1,73 @@
+h3 { margin: 3%; font-size:110%; }
+
+.gui-heading {
+    background-color: lightgray;
+    color: black;
+    padding: 5rem 20px 5rem 20px;
+}
+
+.panel-body {
+    overflow: hidden;
+}
+
+.actions {
+    border-bottom: solid 1px lightgray;
+    margin-bottom: 5rem;
+}
+
+.actions > .action {
+    float: left; padding: 10px;
+    color: black;
+}
+
+.actions > .action:hover { background-color: #f1f1f1; }
+.actions > .action.edit { display: none; }
+
+#features {
+    min-height: 1px;
+}
+#unsorted:empty:after {
+    content: "No unsorted features.";
+}
+#features:empty:after {
+    content: "You haven't made any customizations to your feature layout yet.";
+}
+.features-container { background-color: white; }
+.features-container .feature {
+    display: inline-block; width: 31.3%;
+}
+.feature {
+    white-space: nowrap; text-align: left;
+    border: solid 2px transparent; text-decoration: none; color:black;
+    color: gray; display: block;
+    cursor: pointer; box-sizing: border-box;
+    padding: 10px 15px; margin: 5px 1%;
+    overflow: hidden;
+}
+.feature:not(.corrupted):hover {
+    border-color: dodgerblue; color: black;
+}
+.feature .name { 
+    display: inline-block; text-overflow: ellipsis; overflow: hidden;
+    vertical-align: middle;
+}
+.feature .fa { 
+    vertical-align: middle;
+}
+
+.feature-group:not(:first-child) { 
+    margin-top: 3rem;
+}
+
+.feature-group .panel-header > span.name { cursor: default; }
+.feature-group .features-container { padding: 3rem 2rem; }
+.feature-group .rmvSec { display: none; cursor: pointer; }
+.features-container:empty:before { 
+    content: "There are no features in this container.";
+}
+
+body.editting .feature-group .panel-header > span.name { cursor: text; }
+body.editting .feature-group .panel-header { cursor: move; }
+body.editting .actions > .action.edit { display: inline-block; }
+body.editting .actions > .action.-edit { display: none; }
+body.editting .rmvSec { display: inline-block; }

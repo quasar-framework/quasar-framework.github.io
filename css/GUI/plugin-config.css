@@ -1,0 +1,38 @@
+.pluginConfigContainer .setting {
+    padding-left: 2%;
+}
+
+.pluginConfigContainer .setting > input,
+.pluginConfigContainer .setting > select {
+    margin: 0;
+}
+
+.pluginConfigContainer .setting > .key {
+    width: 15%;
+    float: left; border-radius: 0;
+    text-align: right;
+    background-color: #f1f1f1;
+}
+
+.pluginConfigContainer .setting > .key.default {
+    color: gray;
+    cursor: not-allowed;
+}
+
+.pluginConfigContainer .setting > .val,
+.pluginConfigContainer .setting > .sub-setting {
+    width: 80%;
+    float: left; border-radius: 0;
+}
+
+.pluginConfigContainer .setting > .sub-setting {
+    padding: 1.5% 1% 0 0; border: solid 1px lightgray;
+    background-color: #f9f9f9;
+}
+
+.pluginConfigContainer .setting .setting > .val,
+.pluginConfigContainer .setting .setting > .sub-setting {
+    width: 85%;
+}
+
+.pluginConfigContainer .add-setting { margin: 1% 0 2% 2%; display: inline-block; }

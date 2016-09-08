@@ -1,0 +1,11 @@
+.quasar.file-manager .toolbar { background-color: #2E2E2E; padding: 1rem; }
+.quasar.file-manager .toolbar .button { margin: 0; font-size: 16px; }
+.quasar.file-manager .toolbar .button.disabled { opacity: 0.5; cursor: not-allowed; }
+.quasar.file-manager .folder, 
+.quasar.file-manager .file { cursor: pointer; margin: 0; padding: 5px; }
+.quasar.file-manager .file.selected { color: white; background: dodgerblue; padding-left: 5px !important; }
+.quasar.file-manager .folder.selected > .fa { color: dodgerblue; }
+.quasar.file-manager ul { list-style: none; display: none; margin: 5px 0 5px 15px; font-size: 100%; }
+.quasar.file-manager > ul { display: block; border: solid 1px #2E2E2E; margin: 0; padding: 0 1rem; }
+.quasar.file-manager i.fa-folder-open + span + ul { display: block; }
+.quasar.file-manager { text-align: left; }

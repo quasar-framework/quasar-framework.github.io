@@ -1,0 +1,66 @@
+* { box-sizing: border-box; }
+
+html { font-family: verdana; }
+body { position: relative; }
+
+html, body, #GUI_BODY, #GUI_BODY_WRAPPER {
+    /* height: 100%; */
+}
+
+#GUI_BODY_WRAPPER { 
+    position: relative; 
+    background-color: #f1f1f1;
+}
+#GUI_BODY {
+    background-color: white;
+    border-top: solid 1px lightgray;
+    padding-bottom: 40px;
+}
+#GUI_FOOTER {
+    background-color: white;
+    padding: 40px 20px;
+    margin-top: 40px;
+}
+
+#GUI_NAVBAR { 
+    width: 100%;
+    overflow: auto;
+    text-align: left;
+}
+#GUI_USER {
+    padding: 13px; font-size: 24px; line-height: 1;
+    color: black;
+}
+#GUI_USER > .name { margin-right: 5px; }
+#GUI_USER > .fa-sign-out { border: none; background-color: white; padding: 0; margin: 0; }
+#GUI_NAVBAR:hover {  }
+#GUI_NAVBAR .navbar-button { 
+    position: relative; color: gray; 
+    padding: 13px; font-size: 24px;
+    display: inline-block;
+    background: none; vertical-align: top; border: none; 
+    cursor: pointer; 
+    margin: 0; 
+}
+#GUI_NAVBAR .navbar-button .title { display: none; position: absolute; top: 0; left: 64px; padding: 20px; font-family: verdana; background-color: #333; }
+#GUI_NAVBAR .navbar-button:hover { color: black; }
+#GUI_NAVBAR .navbar-button:hover .title { /*display: block;*/ }
+#GUI_NAVBAR form { margin: 0; }
+#GUI_NAVBAR .separator { 
+    height: 50px;
+    display: inline-block; 
+    vertical-align: top;
+    border-right: solid 1px lightgray;
+}
+
+@media (orientation: portrait) {
+    #GUI_BODY { border-radius: 0px; }
+    #GUI_NAVBAR { border-bottom: solid 1px lightgray; }
+}
+
+.Quasar-Field-Error { color: #C04442; }
+.Quasar-Field-Error + .quasar-error { margin-bottom: 1.5rem; }
+.quasar-error + .Quasar-Field-Error { margin-bottom: 1.5rem; }
+input.quasar-error,
+select.quasar-error,
+textarea.quasar-error { border-color: #C04442; margin-bottom: 0;  }
