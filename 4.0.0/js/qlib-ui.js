@@ -4,7 +4,7 @@
         style.id = "Quasar-qlib-ui-styles";
         style.rel = "stylesheet";
         style.type = "text/css";
-        style.href = Quasar.depot.get("RESOURCE_URI") + "/css/qlib-ui.css";
+        style.href = Quasar.depot.get("SITE_URL") + "/" + Quasar.depot.get("RESOURCE_URI") + "/css/qlib-ui.css";
         document.head.appendChild(style);
     }
 }());
@@ -235,8 +235,8 @@ Quasar.AjaxifyForm = {
 
 Quasar.function('AjaxifyPagination', function (data) {
     var self = Quasar(this),
-        btn = document.createElement('button'),
-        loading = false;
+            btn = document.createElement('button'),
+            loading = false;
 
     data = Quasar.extend({
         url: 0,
@@ -364,9 +364,9 @@ Quasar.function('FancyCheckbox', function (options) {
     Quasar(this).addClass("fancycheckbox");
 
     var checkbox = Quasar.new("div").addClass("box"),
-        tick = Quasar.new("div").class("tick" + (" " + (options.tick || "fa fa-check fa-lg")) + (options.animate ? " animated" : "")),
-        text = Quasar.new("div").class("text").html(this.title || ""),
-        label = Quasar.new('label').class("quasar fancycheckbox");
+            tick = Quasar.new("div").class("tick" + (" " + (options.tick || "fa fa-check fa-lg")) + (options.animate ? " animated" : "")),
+            text = Quasar.new("div").class("text").html(this.title || ""),
+            label = Quasar.new('label').class("quasar fancycheckbox");
 
     checkbox.append(tick);
 
@@ -494,18 +494,18 @@ Quasar.Dialog.prototype = {
             this.closeable(false);
         }
         this.open(
-            Quasar.new('div').append(
-            Quasar.new('img')
-            .attr('src', this.settings.loading.img.src)
-            .attr('alt', this.settings.loading.img.alt)
-            .style({
-                width: this.settings.loading.img.width,
-                height: this.settings.loading.img.height
-            })
-            ).append(
-            Quasar.new('div').style({marginTop: '2%'}).html(msg || this.settings.loading.text)
-            )
-            );
+                Quasar.new('div').append(
+                Quasar.new('img')
+                .attr('src', this.settings.loading.img.src)
+                .attr('alt', this.settings.loading.img.alt)
+                .style({
+                    width: this.settings.loading.img.width,
+                    height: this.settings.loading.img.height
+                })
+                ).append(
+                Quasar.new('div').style({marginTop: '2%'}).html(msg || this.settings.loading.text)
+                )
+                );
     },
     close: function () {
         if (this.settings.closeable) {
@@ -569,22 +569,22 @@ Quasar.function('datepicker', function (initData, onchange) {
         time: false
     },
     i,
-        input = this,
-        date = {},
-        startDate,
-        endDate,
-        DOM = {
-            frame: Quasar.new('div').class('datepickerFrame'),
-            holder: Quasar.new('div'),
-            title: document.createElement('div'),
-            year: Quasar.new('select').class('datepickerYear quasar last-vertical'),
-            month: Quasar.new('select').class('datepickerMonth quasar last-vertical'),
-            days: Quasar.new('div').class('datepickerDays'),
-            daysOfWeek: Quasar.new('div').class('datepickerDaysOfWeek'),
-            dialog: new Quasar.Dialog()
-        },
+            input = this,
+            date = {},
+            startDate,
+            endDate,
+            DOM = {
+                frame: Quasar.new('div').class('datepickerFrame'),
+                holder: Quasar.new('div'),
+                title: document.createElement('div'),
+                year: Quasar.new('select').class('datepickerYear quasar last-vertical'),
+                month: Quasar.new('select').class('datepickerMonth quasar last-vertical'),
+                days: Quasar.new('div').class('datepickerDays'),
+                daysOfWeek: Quasar.new('div').class('datepickerDaysOfWeek'),
+                dialog: new Quasar.Dialog()
+            },
     daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-        monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
     if (typeof initData === 'object') {
         Quasar.extend(settings, initData);
@@ -731,18 +731,18 @@ Quasar.function('datepicker', function (initData, onchange) {
 Quasar.datepicker = {
     visualupdate: function () {
         var frame = Quasar(this).parents('datepickerFrame'),
-            data = frame.node().datepickerData,
-            yearSelect = frame.find('.datepickerYear'),
-            monthSelect = frame.find('.datepickerMonth');
+                data = frame.node().datepickerData,
+                yearSelect = frame.find('.datepickerYear'),
+                monthSelect = frame.find('.datepickerMonth');
 
         data.year = yearSelect.value();
         data.month = monthSelect.value();
 
         monthSelect.children().invoke(function () {
             if (
-                (data.startDate[0] == data.year && data.startDate[1] > this.value) ||
-                (data.endDate[0] == data.year && data.endDate[1] < this.value)
-                ) {
+                    (data.startDate[0] == data.year && data.startDate[1] > this.value) ||
+                    (data.endDate[0] == data.year && data.endDate[1] < this.value)
+                    ) {
                 this.setAttribute('disabled', 'disabled');
             } else {
                 this.removeAttribute('disabled');
@@ -772,9 +772,9 @@ Quasar.datepicker = {
             } else {
                 this.style.display = 'initial';
                 if (
-                    (data.startDate[0] == data.year && data.startDate[1] == data.month && data.startDate[2] > this.innerHTML) ||
-                    (data.endDate[0] == data.year && data.endDate[1] == data.month && data.endDate[2] < this.innerHTML)
-                    ) {
+                        (data.startDate[0] == data.year && data.startDate[1] == data.month && data.startDate[2] > this.innerHTML) ||
+                        (data.endDate[0] == data.year && data.endDate[1] == data.month && data.endDate[2] < this.innerHTML)
+                        ) {
                     this.className = 'datepickerDisabled';
                 } else {
                     this.className = '';
@@ -877,16 +877,16 @@ Quasar.timeago = {
         }
 
         var words = seconds < 45 && substitute($l.seconds, Math.round(seconds)) ||
-            seconds < 90 && substitute($l.minute, 1) ||
-            minutes < 45 && substitute($l.minutes, Math.round(minutes)) ||
-            minutes < 90 && substitute($l.hour, 1) ||
-            hours < 24 && substitute($l.hours, Math.round(hours)) ||
-            hours < 42 && substitute($l.day, 1) ||
-            days < 30 && substitute($l.days, Math.round(days)) ||
-            days < 45 && substitute($l.month, 1) ||
-            days < 365 && substitute($l.months, Math.round(days / 30)) ||
-            years < 1.5 && substitute($l.year, 1) ||
-            substitute($l.years, Math.round(years));
+                seconds < 90 && substitute($l.minute, 1) ||
+                minutes < 45 && substitute($l.minutes, Math.round(minutes)) ||
+                minutes < 90 && substitute($l.hour, 1) ||
+                hours < 24 && substitute($l.hours, Math.round(hours)) ||
+                hours < 42 && substitute($l.day, 1) ||
+                days < 30 && substitute($l.days, Math.round(days)) ||
+                days < 45 && substitute($l.month, 1) ||
+                days < 365 && substitute($l.months, Math.round(days / 30)) ||
+                years < 1.5 && substitute($l.year, 1) ||
+                substitute($l.years, Math.round(years));
 
         if (words === null) {
             return;
@@ -960,7 +960,7 @@ Quasar.Toast.toaster = null;
 Quasar.function("ToTop", function () {
     if (window.innerHeight < this.offsetHeight) {
         var totop = Quasar.new("button").class("button icon fa fa-chevron-up"),
-            self = this;
+                self = this;
         totop.attr("style", "position: fixed; bottom: 1%; right: 1%;");
         totop.on("click", function () {
             self.scrollIntoView();
