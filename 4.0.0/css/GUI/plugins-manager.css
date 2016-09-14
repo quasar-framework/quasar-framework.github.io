@@ -7,10 +7,10 @@ INSTALLED PLUGINS - IFRAME
 */
 
 .plugin { padding: 1rem 1.5rem; border-bottom: solid 1px lightgray; margin-bottom: 10px; }
-.plugin.red { opacity: 0.6; }
-.plugin.red .actions .button.export,
-.plugin.red .actions .button.upload { display: none !important; }
-.plugin.red .name:after { content: "corrupted"; color: red; margin-left: 10px; font-size: 80%; }
+.plugin.broken { opacity: 0.6; }
+.plugin.broken .actions .button.export,
+.plugin.broken .actions .button.upload { display: none !important; }
+.plugin.broken .name:after { content: "corrupted"; color: red; margin-left: 10px; font-size: 80%; }
 .plugin .name { font-weight: bold; font-size: 115%; cursor: pointer; }
 .plugin .actions { float: right; }
 .plugin .actions .button { margin: 0; }

@@ -1,11 +1,5 @@
 h3 { margin: 3%; font-size:110%; }
 
-.gui-heading {
-    background-color: lightgray;
-    color: black;
-    padding: 5rem 20px 5rem 20px;
-}
-
 .panel-body {
     overflow: hidden;
 }
@@ -34,7 +28,7 @@ h3 { margin: 3%; font-size:110%; }
 }
 .features-container { background-color: white; }
 .features-container .feature {
-    display: inline-block; width: 31.3%;
+    display: block;
 }
 .feature {
     white-space: nowrap; text-align: left;

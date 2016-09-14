@@ -81,8 +81,8 @@
             SITE_URL: function (url) {
                 data.SITE_URL = url;
             },
-            RESOURCE_URI: function (uri) {
-                data.RESOURCE_URI = uri;
+            RESOURCE_URL: function (uri) {
+                data.RESOURCE_URL = uri;
             }
         };
     };
@@ -490,7 +490,7 @@
                     Quasar.depot.set.SITE_URL(url);
                 },
                 res: function (uri) {
-                    Quasar.depot.set.RESOURCE_URI(uri);
+                    Quasar.depot.set.RESOURCE_URL(uri);
                 }
             }, function (setting, func) {
                 if (data['data-qlib-' + setting] !== undefined) {

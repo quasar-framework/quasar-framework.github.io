@@ -17,9 +17,7 @@ html, body, #GUI_BODY, #GUI_BODY_WRAPPER {
     padding-bottom: 40px;
 }
 #GUI_FOOTER {
-    background-color: white;
     padding: 40px 20px;
-    margin-top: 40px;
 }
 
 #GUI_NAVBAR { 
@@ -28,34 +26,36 @@ html, body, #GUI_BODY, #GUI_BODY_WRAPPER {
     text-align: left;
 }
 #GUI_USER {
-    padding: 13px; font-size: 24px; line-height: 1;
-    color: black;
+    font-size: 24px; line-height: 1;
 }
 #GUI_USER > .name { margin-right: 5px; }
-#GUI_USER > .fa-sign-out { border: none; background-color: white; padding: 0; margin: 0; }
+#GUI_USER > .fa-sign-out { border: none; padding: 0; margin: 0; }
 #GUI_NAVBAR:hover {  }
-#GUI_NAVBAR .navbar-button { 
+#GUI_NAVBAR .navbar-button,
+#GUI_USER .navbar-button { 
     position: relative; color: gray; 
-    padding: 13px; font-size: 24px;
+    padding: 13px 17px; font-size: 24px;
     display: inline-block;
     background: none; vertical-align: top; border: none; 
     cursor: pointer; 
-    margin: 0; 
+    margin: 0;
+    color: #f1f1f1;
+    transition: all 0.4s ease;
 }
-#GUI_NAVBAR .navbar-button .title { display: none; position: absolute; top: 0; left: 64px; padding: 20px; font-family: verdana; background-color: #333; }
-#GUI_NAVBAR .navbar-button:hover { color: black; }
-#GUI_NAVBAR .navbar-button:hover .title { /*display: block;*/ }
+#GUI_NAVBAR .navbar-button:hover,
+#GUI_USER .navbar-button:hover { color: #001f3f; background-color: white; }
 #GUI_NAVBAR form { margin: 0; }
-#GUI_NAVBAR .separator { 
+#GUI_NAVBAR .separator,
+#GUI_USER .separator { 
     height: 50px;
     display: inline-block; 
     vertical-align: top;
-    border-right: solid 1px lightgray;
+    margin: 0 5px;
+    border-right: solid 1px #f1f1f1;
 }
 
 @media (orientation: portrait) {
-    #GUI_BODY { border-radius: 0px; }
-    #GUI_NAVBAR { border-bottom: solid 1px lightgray; }
+    
 }
 
 .Quasar-Field-Error { color: #C04442; }
