@@ -28,21 +28,24 @@ h3 { margin: 3%; font-size:110%; }
 }
 .features-container { background-color: white; }
 .features-container .feature {
-    display: block;
+    width: 20%;
 }
 .feature {
-    white-space: nowrap; text-align: left;
+    display: inline-block;
+    text-align: center;
+    width: 30%;
+    white-space: nowrap;
     border: solid 2px transparent; text-decoration: none; color:black;
-    color: gray; display: block;
+    color: gray;
     cursor: pointer; box-sizing: border-box;
-    padding: 10px 15px; margin: 5px 1%;
+    padding: 15px 10px; margin: 5px 1%;
     overflow: hidden;
 }
 .feature:not(.corrupted):hover {
     border-color: dodgerblue; color: black;
 }
 .feature .name { 
-    display: inline-block; text-overflow: ellipsis; overflow: hidden;
+    display: block; text-overflow: ellipsis; overflow: hidden;
     vertical-align: middle;
 }
 .feature .fa { 
