@@ -13,7 +13,6 @@ html, body, #GUI_BODY, #GUI_BODY_WRAPPER {
 }
 #GUI_BODY {
     background-color: white;
-    border-top: solid 1px lightgray;
     padding-bottom: 40px;
 }
 #GUI_FOOTER {
