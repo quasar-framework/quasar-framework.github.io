@@ -17,23 +17,33 @@ h3 { margin: 3%; font-size:110%; }
 .actions > .action:hover { background-color: #f1f1f1; }
 .actions > .action.edit { display: none; }
 
-#features {
-    min-height: 1px;
+.panel-holder:empty:after { content: "Drag and drop sections here."; }
+
+.widget {
+    width: 33.3%;
+    display: inline-block;
+    background-color: white;
 }
-#unsorted:empty:after {
-    content: "No unsorted features.";
+
+#unsorted .widget {
+    width: 11%;
 }
+
+.widget.widget-block {
+    width: auto !important;
+    display: block;
+}
+
 #features:empty:after {
     content: "You haven't made any customizations to your feature layout yet.";
 }
 .features-container { background-color: white; }
 .features-container .feature {
-    width: 20%;
+    
 }
 .feature {
-    display: inline-block;
+    display: block;
     text-align: center;
-    width: 30%;
     white-space: nowrap;
     border: solid 2px transparent; text-decoration: none; color:black;
     color: gray;
@@ -57,7 +67,6 @@ h3 { margin: 3%; font-size:110%; }
 }
 
 .feature-group .panel-header > span.name { cursor: default; }
-.feature-group .features-container { padding: 3rem 2rem; }
 .feature-group .rmvSec { display: none; cursor: pointer; }
 .features-container:empty:before { 
     content: "There are no features in this container.";

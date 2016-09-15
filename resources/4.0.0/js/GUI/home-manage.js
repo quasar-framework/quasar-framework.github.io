@@ -1,5 +1,6 @@
 var editMode = false;
 Quasar.onload(function () {
+    var unsorted = Quasar("#unsorted").find(".features-container");
 
     Quasar("#enable_editing").on("click", function () {
         Quasar(document.body).addClass("editting");
@@ -17,8 +18,7 @@ Quasar.onload(function () {
         Quasar(document.body).rmvClass("editting");
         editMode = false;
 
-        var unsorted = Quasar("#unsorted");
-        Quasar(".feature").invoke(function () {
+        Quasar(".widget").invoke(function () {
             unsorted.append(this);
         });
 
@@ -29,7 +29,7 @@ Quasar.onload(function () {
         constructLayout();
     });
 
-    dragula([Quasar("#features").node()], {
+    dragula(Quasar(".panel-holder").nodes, {
         moves: function (el, container, handle) {
             return editMode && handle.className.indexOf("panel-header") > -1;
         },
@@ -38,12 +38,12 @@ Quasar.onload(function () {
         }
     });
 
-    var drag = dragula([document.getElementById("unsorted")], {
+    var drag = dragula([unsorted.node()], {
         moves: function () {
             return editMode;
         },
         accepts: function (el, target, source, sibling) {
-            return el.className.indexOf("feature") === 0;
+            return el.className.indexOf("widget") === 0;
         }
     });
 
@@ -53,11 +53,8 @@ Quasar.onload(function () {
         });
     };
 
-    function addSection(name, id) {
+    function addSection(name, holder) {
         var section = document.createElement("section");
-        if (id) {
-            section.id = id;
-        }
         section.is_section = true;
 
         section.className = "feature-group panel";
@@ -68,29 +65,29 @@ Quasar.onload(function () {
 
         drag.containers.push(container);
 
-        Quasar("#features").append(section);
+        Quasar(".panel-holder").nodes[holder || 0].appendChild(section);
 
         return container;
     }
-
+    
     function constructLayout() {
         if (featuresLayout) {
-            Quasar.foreach(featuresLayout, function () {
-                var s = addSection(this[0]);
+            Quasar.foreach(featuresLayout, function (index) {
+                Quasar.foreach(this, function () {
+                    var s = addSection(this[0], index);
 
-                Quasar.foreach(this[1], function () {
-                    var e = document.getElementById(this);
-                    if (e) {
-                        s.appendChild(e);
-                    }
+                    Quasar.foreach(this[1], function () {
+                        var e = document.getElementById("widget-" + this);
+                        if (e) {
+                            s.appendChild(e);
+                        }
+                    });
                 });
-            });
-        } else {
-            var unsorted = Quasar("#unsorted");
-            Quasar(".feature").invoke(function () {
-                unsorted.append(this);
+
             });
         }
+        
+        
     }
     constructLayout();
 
@@ -112,14 +109,20 @@ Quasar.onload(function () {
 
 function persistLayout() {
     var layout = [];
-    Quasar("#features").find(".feature-group").invoke(function () {
-        var features = [], q = Quasar(this);
+    Quasar("#layout").children().invoke(function () {
+        var sections = [];
 
-        q.find(".feature").invoke(function () {
-            features.push(this.id);
+        Quasar(this).find(".feature-group").invoke(function () {
+            var widgets = [];
+
+            Quasar(this).find(".widget").invoke(function () {
+                widgets.push(this.id.replace("widget-", ""));
+            });
+
+            sections.push([Quasar(this).find(".name").html(), widgets]);
         });
 
-        layout.push([q.find(".name").html(), features]);
+        layout.push(sections);
     });
 
     Quasar("#layout_input").value(JSON.stringify(layout));
@@ -135,7 +138,7 @@ function rename(element) {
 }
 
 function removeSection(element) {
-    if (Quasar(element).find(".features-container").children(true).length) {
+    if (Quasar(element).find(".panel-body").children(true).length) {
         new Quasar.Dialog().open("In order to remove a section you must make sure it has no features inside first.");
     } else {
         new Quasar.Dialog().open("Are you sure you want to remove this section?", {

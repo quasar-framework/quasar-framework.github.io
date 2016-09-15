@@ -916,6 +916,11 @@ img,
     max-width: 100%;
 }
 
+.img-center {
+    display: block;
+    margin: 0 auto;
+}
+
 .img-circle {
     border-radius: 50%;
 }
