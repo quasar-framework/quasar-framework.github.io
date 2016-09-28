@@ -5,7 +5,7 @@
         style.rel = "stylesheet";
         style.type = "text/css";
         style.href = Quasar.depot.get("RESOURCE_URL") + "/css/qlib-ui.css";
-        document.head.appendChild(style);
+        Quasar(document.head).prepend(style);
     }
 }());
 
