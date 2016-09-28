@@ -34,7 +34,7 @@
             this.nodes = Quasar.toArray(selector);
         }
     }
-    
+
     // Initialize registry for plugins
     Quasar.Plugins = {};
 
@@ -62,6 +62,7 @@
         };
         this.set = {
             xhrSettings: {
+                MFXHR: true,
                 type: function (type) {
                     if (type in {POST: 0, GET: 0, PUT: 0, DELETE: 0, FILE: 0})
                         data.xhrSettings.type = type;
@@ -158,7 +159,7 @@
             if (!(data.type in {POST: 0, GET: 0, PUT: 0, DELETE: 0, FILE: 0})) {
                 data.type = 'GET';
             }
-            
+
             if (!(data.data instanceof window.File)) {
                 if (data.data instanceof window.FormData) {
                     // do nothing
@@ -184,9 +185,11 @@
 
             xhr.open(data.type, data.url || Quasar.depot.get('SITE_URL'), true);
 
-            xhr.setRequestHeader('X-MF-XHR', true);
+            if (data.MFXHR) {
+                xhr.setRequestHeader('X-MF-XHR', true);
+            }
             xhr.setRequestHeader('Accept', 'application/json');
-            
+
             if (data.type !== "GET" && !(data.data instanceof window.FormData)) {
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             }
@@ -194,7 +197,7 @@
             if (typeof data.headers === 'object') {
                 Quasar.foreach(data.headers, xhr.setRequestHeader, xhr);
             }
-            
+
             xhr.send(data.data);
 
             return xhr;
