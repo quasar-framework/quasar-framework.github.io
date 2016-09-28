@@ -53,7 +53,7 @@
                 },
                 response: function () {
                 },
-                max_upload_file_size: 8388608
+                MFXHR: true,
             },
             now: new Date()
         };
@@ -62,7 +62,6 @@
         };
         this.set = {
             xhrSettings: {
-                MFXHR: true,
                 type: function (type) {
                     if (type in {POST: 0, GET: 0, PUT: 0, DELETE: 0, FILE: 0})
                         data.xhrSettings.type = type;
