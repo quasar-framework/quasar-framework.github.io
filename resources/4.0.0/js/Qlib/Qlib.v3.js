@@ -54,6 +54,7 @@
                 response: function () {
                 },
                 MFXHR: true,
+                async: true
             },
             now: new Date()
         };
@@ -182,7 +183,7 @@
                 data.data = null;
             }
 
-            xhr.open(data.type, data.url || Quasar.depot.get('SITE_URL'), true);
+            xhr.open(data.type, data.url || Quasar.depot.get('SITE_URL'), data.async);
 
             if (data.MFXHR) {
                 xhr.setRequestHeader('X-MF-XHR', true);
@@ -297,6 +298,23 @@
             });
         }
     };
+
+    (function () {
+        var translations = {};
+        Quasar.define('translate', function (file) {
+            if (!translations[file]) {
+                Quasar.xhr({
+                    url: Quasar.depot.get("SITE_URL") + "/quasar/lang/json/" + file,
+                    response: function (data) {
+                        translations[file] = data;
+                    },
+                    async: false
+                });
+            }
+
+            return translations[file];
+        });
+    }());
 
     Quasar.foreach({
         show: function (display) {
